@@ -42,12 +42,12 @@ var longMonths = map[string]map[time.Month]string {
 var layouts = map[string]map[string]string {
 	"de": {
 		"2 Jan": "2. Jan",
-		"2 January": "2. Januar",
+		"2 January": "2. January",
 		"2 Jan 06": "2. Jan 06",
 		"2 Jan 2006": "2. Jan 2006",
-		"2 January 2006": "2. Januar 2006",
+		"2 January 2006": "2. January 2006",
 		"Jan 2006": "Jan 2006",
-		"January 2006": "Januar 2006",
+		"January 2006": "January 2006",
 	},
 }
 
