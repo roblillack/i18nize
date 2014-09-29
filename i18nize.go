@@ -42,7 +42,12 @@ var longMonths = map[string]map[time.Month]string {
 var layouts = map[string]map[string]string {
 	"de": {
 		"2 Jan": "2. Jan",
-		"January 2": "2. Januar",
+		"2 January": "2. Januar",
+		"2 Jan 06": "2. Jan 06",
+		"2 Jan 2006": "2. Jan 2006",
+		"2 January 2006": "2. Januar 2006",
+		"Jan 2006": "Jan 2006",
+		"January 2006": "Januar 2006",
 	},
 }
 
@@ -70,12 +75,16 @@ func startsWithLowerCase(str string) bool {
 	return 'a' <= c && c <= 'z'
 }
 
-func LayoutTime(layout, lang string) string {
+func getLayout(layout, lang string) string {
 	if l := layouts[lang][layout]; l != "" {
 		return l
 	}
 	
 	return layout
+}
+
+func LayoutTime(t time.Time, lang string, layout string) string {
+	return FormatTime(t, lang, getLayout(layout, lang))
 }
 
 func FormatTime(t time.Time, lang string, layout string) string {
