@@ -34,6 +34,9 @@ func Test_LayoutTime(t *testing.T) {
 	if l := LayoutTime(liasBirthday, "de-CH", "2 January 2006"); l != "16. März 2008" {
 		t.Errorf("Formatted time ‘%s’ not expected", l)
 	}
+	if l := LayoutTime(liasBirthday, "de-DE", "January 2006"); l != "März 2008" {
+		t.Errorf("Formatted time ‘%s’ not expected", l)
+	}
 }
 
 func Test_FormatTime(t *testing.T) {
