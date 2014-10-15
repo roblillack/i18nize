@@ -20,7 +20,7 @@ var shortDays = map[string]map[time.Weekday]string{
 var longDays = map[string]map[time.Weekday]string{
 	"de": {
 		time.Monday:    "Montag",
-		time.Tuesday:   "Dienstad",
+		time.Tuesday:   "Dienstag",
 		time.Wednesday: "Mittwoch",
 		time.Thursday:  "Donnerstag",
 		time.Friday:    "Freitag",
