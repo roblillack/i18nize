@@ -44,3 +44,13 @@ func Test_FormatTime(t *testing.T) {
 		t.Errorf("Formatted time ‘%s’ not expected", l)
 	}
 }
+
+func Test_MonthName(t *testing.T) {
+	if r := MonthName(time.October, "de-DE"); r != "Oktober" {
+		t.Errorf("Monthname ‘%s’ not expected", r)
+	}
+
+	if r := MonthName(time.October, "yy-DE"); r != "October" {
+		t.Errorf("Monthname ‘%s’ not expected", r)
+	}
+}

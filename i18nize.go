@@ -108,6 +108,49 @@ func formatLongMonth(t time.Time, lang string) string {
 	return t.Format("January")
 }
 
+func langCode(locale string) string {
+	if len(locale) < 2 {
+		return locale
+	}
+	return locale[:2]
+}
+
+func MonthName(month time.Month, locale string) string {
+	lang := langCode(locale)
+	if m, ok := longMonths[lang]; ok {
+		return m[month]
+	}
+
+	return month.String()
+}
+
+func ShortMonthName(month time.Month, locale string) string {
+	lang := langCode(locale)
+	if m, ok := shortMonths[lang]; ok {
+		return m[month]
+	}
+
+	return month.String()[:3]
+}
+
+func WeekdayName(day time.Weekday, locale string) string {
+	lang := langCode(locale)
+	if m, ok := longDays[lang]; ok {
+		return m[day]
+	}
+
+	return day.String()
+}
+
+func ShortWeekdayName(day time.Weekday, locale string) string {
+	lang := langCode(locale)
+	if m, ok := shortDays[lang]; ok {
+		return m[day]
+	}
+
+	return day.String()[:3]
+}
+
 func startsWithLowerCase(str string) bool {
 	if len(str) == 0 {
 		return false
